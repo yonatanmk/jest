@@ -6,7 +6,7 @@ describe('App', () => {
   let app = mount(<App />);
 
   it('renders the App title', () => {
-    console.log(app.debug())
+    // console.log(app.debug())
     expect(app.find('h2').text()).toEqual('Note to Self');
   })
 
@@ -26,5 +26,58 @@ describe('App', () => {
     it('creates a Submit Button', () => {
       expect(app.find('.btn').at(0).text()).toEqual('Submit');
     })
+  });
+
+  describe('when creating a note', () => {
+    let testNote = 'test note'
+
+    beforeEach(() => {
+      app.find('FormControl').simulate('change', {
+        target: { value: testNote }
+      });
+    })
+
+    afterEach(() => {
+      app.find('.btn').at(1).simulate('click');
+    })
+
+    it('updates the text in state', () => {
+      // console.log(app.state())
+      expect(app.state().text).toEqual(testNote);
+    })
+
+    describe('and submitting the new note', () => {
+      beforeEach(() => {
+        app.find('.btn').at(0).simulate('click');
+      })
+
+      it('adds the new note to state', () => {
+        expect(app.state().notes[0].text).toEqual(testNote);
+      })
+
+      describe('and remounting the component', () => {
+        let app2;
+
+        beforeEach(() => {
+          app2 = mount(<App />);
+        })
+
+        it('reads the stored note cookies', () => {
+          // console.log(app.state())
+          expect(app.state().notes[0].text).toEqual(testNote);
+        })
+      });
+
+      describe('and clicking the clear button', () => {
+        beforeEach(() => {
+          app.find('.btn').at(1).simulate('click');
+        })
+
+        it('clears the notes in the state', () => {
+          expect(app.state().notes).toEqual([]);
+        })
+      });
+    });
+
   });
 });

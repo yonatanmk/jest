@@ -14,3 +14,6 @@ Watch Usage
  › Press t to filter by a test name regex pattern.
  › Press q to quit watch mode.
  › Press Enter to trigger a test run.
+
+To Test With Coverage:
+npm test -- --coverage
