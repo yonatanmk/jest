@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App.js'
 
-const app = shallow(<App />);
-
 describe('App', () => {
+  const app = shallow(<App />);
+
   it('renders correctly', () => {
     expect(app).toMatchSnapshot();
   });
@@ -14,8 +14,10 @@ describe('App', () => {
   });
 
   describe('When clicking the `add-gift` button', () => {
+    const id = 1;
+
     beforeEach(() => {
-      app.find('.btn-add').simulate('click');
+      app.find('#btn-add').simulate('click');
     })
 
     afterEach(() => {
@@ -24,12 +26,27 @@ describe('App', () => {
 
     it('adds a new gift to `state`', () => {
       expect(app.state().gifts.length).toEqual(1);
-      expect(app.state().gifts).toEqual([{ id: 1 }]);
+      expect(app.state().gifts).toEqual([{ id }]);
     });
 
     it('adds a new gift to the rendered list', () => {
-      const giftList = app.find('.gift-list');
+      const giftList = app.find('#gift-list');
       expect(giftList.children().length).toEqual(1);
     });
+
+    it('creates a Gift component', () => {
+      expect(app.find('Gift').exists()).toBe(true)
+    });
+
+    describe('and the user wants to remove the added gift', () => {
+      beforeEach(() => {
+        app.instance().removeGift(id);
+      })
+
+      it('removes the gift from `state`', () => {
+        expect(app.state().gifts.length).toEqual(0);
+        expect(app.state().gifts).toEqual([]);
+      });
+    })
   });
 })

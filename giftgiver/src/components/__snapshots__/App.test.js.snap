@@ -22,15 +22,15 @@ ShallowWrapper {
           Gift Giver
         </h2>,
         <div
-          className="gift-list"
+          id="gift-list"
         />,
         <Button
           active={false}
           block={false}
           bsClass="btn"
           bsStyle="default"
-          className="btn-add"
           disabled={false}
+          id="btn-add"
           onClick={[Function]}
         >
           Add Gift
@@ -56,7 +56,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [],
-          "className": "gift-list",
+          "id": "gift-list",
         },
         "ref": null,
         "rendered": Array [],
@@ -72,8 +72,8 @@ ShallowWrapper {
           "bsClass": "btn",
           "bsStyle": "default",
           "children": "Add Gift",
-          "className": "btn-add",
           "disabled": false,
+          "id": "btn-add",
           "onClick": [Function],
         },
         "ref": null,
@@ -94,15 +94,15 @@ ShallowWrapper {
             Gift Giver
           </h2>,
           <div
-            className="gift-list"
+            id="gift-list"
           />,
           <Button
             active={false}
             block={false}
             bsClass="btn"
             bsStyle="default"
-            className="btn-add"
             disabled={false}
+            id="btn-add"
             onClick={[Function]}
           >
             Add Gift
@@ -128,7 +128,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [],
-            "className": "gift-list",
+            "id": "gift-list",
           },
           "ref": null,
           "rendered": Array [],
@@ -144,8 +144,8 @@ ShallowWrapper {
             "bsClass": "btn",
             "bsStyle": "default",
             "children": "Add Gift",
-            "className": "btn-add",
             "disabled": false,
+            "id": "btn-add",
             "onClick": [Function],
           },
           "ref": null,
