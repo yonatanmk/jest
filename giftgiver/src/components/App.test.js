@@ -4,19 +4,32 @@ import App from './App.js'
 
 const app = shallow(<App />);
 
-it('renders correctly', () => {
-  expect(app).toMatchSnapshot();
-});
+describe('App', () => {
+  it('renders correctly', () => {
+    expect(app).toMatchSnapshot();
+  });
 
-it('initializes the `state` with an empty list of gifts', () => {
-  expect(app.state().gifts).toEqual([]);
-});
+  it('initializes the `state` with an empty list of gifts', () => {
+    expect(app.state().gifts).toEqual([]);
+  });
 
-it('adds a new gift to `state` when clicking the `add gift` button', () => {
-  expect(app.state().gifts.length).toEqual(0);
+  describe('When clicking the `add-gift` button', () => {
+    beforeEach(() => {
+      app.find('.btn-add').simulate('click');
+    })
 
-  app.find('.btn-add').simulate('click');
-  
-  expect(app.state().gifts.length).toEqual(1);
-  expect(app.state().gifts).toEqual([{ id: 1 }]);
-});
+    afterEach(() => {
+      app.setState({ gifts: [] });
+    })
+
+    it('adds a new gift to `state`', () => {
+      expect(app.state().gifts.length).toEqual(1);
+      expect(app.state().gifts).toEqual([{ id: 1 }]);
+    });
+
+    it('adds a new gift to the rendered list', () => {
+      const giftList = app.find('.gift-list');
+      expect(giftList.children().length).toEqual(1);
+    });
+  });
+})
