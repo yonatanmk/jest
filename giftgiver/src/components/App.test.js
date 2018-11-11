@@ -29,6 +29,12 @@ describe('App', () => {
       expect(app.state().gifts).toEqual([{ id }]);
     });
 
+    it('adds a 2nd new gift to `state`', () => {
+      app.find('#btn-add').simulate('click');
+      expect(app.state().gifts.length).toEqual(2);
+      expect(app.state().gifts).toEqual([{ id: 1 }, { id: 2 }]);
+    });
+
     it('adds a new gift to the rendered list', () => {
       const giftList = app.find('#gift-list');
       expect(giftList.children().length).toEqual(1);
@@ -47,6 +53,6 @@ describe('App', () => {
         expect(app.state().gifts.length).toEqual(0);
         expect(app.state().gifts).toEqual([]);
       });
-    })
+    });
   });
-})
+});
