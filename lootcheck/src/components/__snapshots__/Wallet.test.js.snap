@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders correctly 1`] = `
+exports[`Wallet renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__unrendered__): <Wallet
+    balance={20}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,11 +20,17 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h2>
-          Loot Check
-        </h2>,
-        <hr />,
-        <Connect(Wallet) />,
+        <h3
+          id="balance"
+        >
+          Wallet Balance: 
+          20
+        </h3>,
+        <be />,
+        <input
+          id="input-wallet"
+          onChange={[Function]}
+        />,
       ],
     },
     "ref": null,
@@ -32,11 +40,18 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Loot Check",
+          "children": Array [
+            "Wallet Balance: ",
+            20,
+          ],
+          "id": "balance",
         },
         "ref": null,
-        "rendered": "Loot Check",
-        "type": "h2",
+        "rendered": Array [
+          "Wallet Balance: ",
+          20,
+        ],
+        "type": "h3",
       },
       Object {
         "instance": null,
@@ -45,16 +60,19 @@ ShallowWrapper {
         "props": Object {},
         "ref": null,
         "rendered": null,
-        "type": "hr",
+        "type": "be",
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
+        "nodeType": "host",
+        "props": Object {
+          "id": "input-wallet",
+          "onChange": [Function],
+        },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "input",
       },
     ],
     "type": "div",
@@ -66,11 +84,17 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h2>
-            Loot Check
-          </h2>,
-          <hr />,
-          <Connect(Wallet) />,
+          <h3
+            id="balance"
+          >
+            Wallet Balance: 
+            20
+          </h3>,
+          <be />,
+          <input
+            id="input-wallet"
+            onChange={[Function]}
+          />,
         ],
       },
       "ref": null,
@@ -80,11 +104,18 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Loot Check",
+            "children": Array [
+              "Wallet Balance: ",
+              20,
+            ],
+            "id": "balance",
           },
           "ref": null,
-          "rendered": "Loot Check",
-          "type": "h2",
+          "rendered": Array [
+            "Wallet Balance: ",
+            20,
+          ],
+          "type": "h3",
         },
         Object {
           "instance": null,
@@ -93,16 +124,19 @@ ShallowWrapper {
           "props": Object {},
           "ref": null,
           "rendered": null,
-          "type": "hr",
+          "type": "be",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
+          "nodeType": "host",
+          "props": Object {
+            "id": "input-wallet",
+            "onChange": [Function],
+          },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "input",
         },
       ],
       "type": "div",

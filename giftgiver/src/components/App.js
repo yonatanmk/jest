@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import Gift from './Gift.js'
+import Gift from './Gift'
 import { maxNumber } from '../helper';
 
 class App extends Component {
