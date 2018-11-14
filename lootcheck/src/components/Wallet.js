@@ -38,9 +38,9 @@ export class Wallet extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ balance }) => {
   return {
-    balance: state,
+    balance,
   }
 };
 
